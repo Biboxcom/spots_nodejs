@@ -255,8 +255,7 @@ class BiboxSpotsClientBase {
         emitter.on( "unsub_channel", ( channel ) => {
             if ( channel && this._subscriptions[channel] ) {
                 this._wss.send( JSON.stringify( {
-                    "channel": this._subscriptions.getChannel(),
-                    "event": "removeChannel"
+                    "unsub": this._subscriptions.getChannel(),
                 } ) );
                 delete this._subscriptions[channel];
             }
