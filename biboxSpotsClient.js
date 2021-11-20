@@ -360,9 +360,8 @@ class BiboxSpotsClientBase {
                         for ( let psub of Object.values( this._subscriptions ) ) {
                             if ( psub.belong( pdata ) ) {
                                 psub.onMessage( pdata[psub.getDataName()] );
-                                break;
+                                return;
                             }
-
                         }
                         return;
                     }
