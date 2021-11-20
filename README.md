@@ -20,6 +20,8 @@
 ## Usage
 
 ```sh
+// 如果出现网络问题,你可能需要代理或者重设client的相关地址参数
+
 // 新建客户端对象 公开的api可以不传apiKey与secretKey
 const { BiboxSpotsClient  } = require( "../../biboxFuturesClient" );
 const apiKey = "Your apiKey";
