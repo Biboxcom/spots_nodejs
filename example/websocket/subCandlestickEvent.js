@@ -3,7 +3,7 @@ const client = new BiboxSpotsClient();
 
 subscribeCandlestick = () => {
     client.subscribeCandlestick( "ETH_USDT", TimeInterval.ONE_MINUTE, ( data ) => {
-        console.log( "ETH_USDT", data );
+        console.log( data );
         // [
         // {
         //     time: 1607582880000,

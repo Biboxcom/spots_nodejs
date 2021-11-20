@@ -3,7 +3,7 @@ const client = new BiboxSpotsClient();
 
 subscribeTrade = () => {
     client.subscribeTrade( "BTC_USDT", ( data ) => {
-        console.log( data[0] );
+        console.log( data );
         // {
         //     symbol: 'BTC_USDT',
         //     side: 'SHORT',
