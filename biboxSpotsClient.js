@@ -391,10 +391,12 @@ class BiboxSpotsClientBase {
         }
         return '';
     }
+
     _ungZip = ( array, offset ) => {
         array = array.slice( offset );
         return zlib.gunzipSync( array ).toString();
     }
+
     _getProxy = async ( path, param ) => {
         let res = await this._sendGet( path, param );
         this._checkState( res );
