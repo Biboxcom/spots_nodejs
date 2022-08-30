@@ -46,6 +46,8 @@ const MarketUrl = {
 
 const PrivateUrl = {
     CANCEL_ORDER: "/v3.1/orderpending/cancelTrade",
+    CANCEL_BATCH_ORDER: "/v3/spot/order/cancelBatch",
+    CANCEL_ALL_ORDER: "/v3/spot/order/cancelAll",
     MAIN_ACCOUNT: "/v3.1/transfer/mainAssets",
     SPOT_ACCOUNT: "/v3.1/spot/account/assets",
     BILLS: "/v3.1/spot/account/bills",
@@ -601,6 +603,26 @@ class BiboxSpotsClient extends BiboxSpotsClientBase {
     cancelOrder = async ( orderId ) => {
         await this._postProxy( PrivateUrl.CANCEL_ORDER, {
             "orders_id": orderId.toString(),
+        } );
+    }
+
+    /**
+     * 批量撤销委托单
+     * @param orderIds 订单id数组
+     */
+    cancelBatchOrder = async ( orderIds ) => {
+        await this._postProxy( PrivateUrl.CANCEL_BATCH_ORDER, {
+            "order_ids": orderIds,
+        } );
+    }
+
+    /**
+     * 撤销单个交易对下的所有委托单
+     * @param pair 交易对
+     */
+    cancelAllOrder = async ( pair ) => {
+        await this._postProxy( PrivateUrl.CANCEL_ALL_ORDER, {
+            "pair": pair,
         } );
     }
 
